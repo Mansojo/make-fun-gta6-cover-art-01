@@ -19,7 +19,7 @@
       <label class="uploadBtn">Add your photo
         <input type="file" id="uploadInput" accept="image/*" hidden>
       </label>
-      <p class="hint">Click a photo to put it in the selected slot. Uploading swaps the selected slot's photo (up to 4 photos).</p>
+      <p class="hint">Click a photo to put it in the selected panel. Uploading swaps the selected panel's photo (up to 4 photos).</p>
     </section>
     <section class="card">
       <h2>Layout</h2>
@@ -59,29 +59,31 @@
       <h2>Look</h2>
       <label class="check"><input type="checkbox" id="grainBox" checked> Film grain</label>
       <label class="check"><input type="checkbox" id="vignetteBox" checked> Vignette</label>
-      <label class="field"><span id="slotLabel">Slot 1 of 4</span>
-        <input type="range" id="zoomRange" min="1" max="3" step="0.05" value="1.15">
+      <label class="field">Panel zoom
+        <input type="range" id="zoomRange" min="1" max="3" step="0.05" value="1">
       </label>
-      <p class="hint">Click a panel to select it, drag to move its photo, scroll to zoom it.</p>
+      <p class="hint">Drag a panel to pan it. Scroll over a panel to zoom. Click a panel to select it.</p>
+    </section>
+    <section class="card">
+      <h2>Export</h2>
+      <div class="btnRow">
+        <button type="button" data-export="1080x1080">Square 1080 × 1080</button>
+        <button type="button" data-export="1080x1350">Portrait 1080 × 1350</button>
+        <button type="button" data-export="1920x1080">Wide 1920 × 1080</button>
+      </div>
       <div class="btnRow">
         <button type="button" id="undoBtn">Undo</button>
         <button type="button" id="redoBtn">Redo</button>
       </div>
     </section>
-    <section class="card">
-      <h2>Export PNG</h2>
-      <div class="btnRow">
-        <button type="button" data-export="square">1080 × 1080</button>
-        <button type="button" data-export="story">1080 × 1350</button>
-        <button type="button" data-export="wide">1920 × 1080</button>
-      </div>
-      <p class="hint" id="statusLine">Ready.</p>
-    </section>
   </aside>
-  <section class="stage">
-    <canvas id="coverCanvas" width="620" height="620"></canvas>
+  <section class="stageCol">
+    <canvas id="stage" width="1080" height="1080"></canvas>
+    <p class="hint" id="stageHint">Click a panel to select it, drag to pan, scroll to zoom.</p>
   </section>
 </main>
-<script type="module" src="src/main.js"></script>
+<script src="src/cover.js"></script>
+<script src="src/shots.js"></script>
+<script src="src/main.js"></script>
 </body>
 </html>
