@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Neon Shore — GTA VI style cover maker</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <h1>NEON SHORE</h1>
+  <p>Turn your photos into a Vice City-style cover. Four panels, a sunset grade, bold lettering — all offline, nothing leaves your machine.</p>
+</header>
+<main class="wrap">
+  <aside class="side">
+    <section class="card">
+      <h2>Photos</h2>
+      <div class="tray" id="tray"></div>
+      <label class="uploadBtn">Add your photo
+        <input type="file" id="uploadInput" accept="image/*" hidden>
+      </label>
+      <p class="hint">Click a photo to put it in the selected slot. Uploading swaps the selected slot's photo (up to 4 photos).</p>
+    </section>
+    <section class="card">
+      <h2>Layout</h2>
+      <div class="btnRow">
+        <button type="button" data-layout="hero3">Hero + 3</button>
+        <button type="button" data-layout="full">Full bleed</button>
+        <button type="button" data-layout="six">Six panels</button>
+        <button type="button" data-layout="nine">Nine panels</button>
+      </div>
+    </section>
+    <section class="card">
+      <h2>Grade</h2>
+      <div class="btnRow">
+        <button type="button" data-grade="sunset">Sunset</button>
+        <button type="button" data-grade="neon">Neon pink / teal</button>
+        <button type="button" data-grade="golden">Golden hour</button>
+        <button type="button" data-grade="dusk">Dusk purple</button>
+      </div>
+    </section>
+    <section class="card">
+      <h2>Caption</h2>
+      <label class="field">Title
+        <input type="text" id="titleInput" value="Neon Shore" maxlength="40">
+      </label>
+      <label class="field">Subtitle
+        <input type="text" id="subtitleInput" value="Vice City nights" maxlength="40">
+      </label>
+      <label class="check"><input type="checkbox" id="showSub" checked> Show subtitle</label>
+      <label class="field">Title size
+        <input type="range" id="sizeRange" min="0.6" max="1.5" step="0.05" value="1">
+      </label>
+      <label class="field">Title height
+        <input type="range" id="heightRange" min="0.7" max="0.95" step="0.01" value="0.86">
+      </label>
+    </section>
+    <section class="card">
+      <h2>Look</h2>
+      <label class="check"><input type="checkbox" id="grainBox" checked> Film grain</label>
+      <label class="check"><input type="checkbox" id="vignetteBox" checked> Vignette</label>
+      <label class="field"><span id="slotLabel">Slot 1 of 4</span>
+        <input type="range" id="zoomRange" min="1" max="3" step="0.05" value="1.15">
+      </label>
+      <p class="hint">Click a panel to select it, drag to move its photo, scroll to zoom it.</p>
+      <div class="btnRow">
+        <button type="button" id="undoBtn">Undo</button>
+        <button type="button" id="redoBtn">Redo</button>
+      </div>
+    </section>
+    <section class="card">
+      <h2>Export PNG</h2>
+      <div class="btnRow">
+        <button type="button" data-export="square">1080 × 1080</button>
+        <button type="button" data-export="story">1080 × 1350</button>
+        <button type="button" data-export="wide">1920 × 1080</button>
+      </div>
+      <p class="hint" id="statusLine">Ready.</p>
+    </section>
+  </aside>
+  <section class="stage">
+    <canvas id="coverCanvas" width="620" height="620"></canvas>
+  </section>
+</main>
+<script type="module" src="src/main.js"></script>
+</body>
+</html>
